@@ -503,7 +503,7 @@
     const head = el('div', 'center', null, root, { textAlign: 'center', width: '1800px' });
     const h1 = el('div', 'word', null, head, { fontSize: '170px', fontWeight: 700, textShadow: '0 10px 80px rgba(0,0,0,.8)' });
     const ch = splitChars(h1, 'Running on Berth.');
-    const sub = el('div', '', o.sub || 'Apps and sites in production today.', head, { fontSize: '44px', color: '#c9d0d6', fontWeight: 500, marginTop: '22px', textShadow: '0 4px 30px rgba(0,0,0,.9)' });
+    const sub = el('div', '', o.sub || 'Live today, and more on the way.', head, { fontSize: '44px', color: '#c9d0d6', fontWeight: 500, marginTop: '22px', textShadow: '0 4px 30px rgba(0,0,0,.9)' });
     const tick = el('div', 'abs mono', null, root, { left: 0, top: '960px', whiteSpace: 'nowrap', fontSize: '26px', letterSpacing: '.22em', color: '#6ee7c8' });
     tick.textContent = (K.APPS_LIVE.map(a => a[1].toUpperCase()).join('   ·   ') + '   ·   ').repeat(3);
     ctx.cue(0, 'whoosh', { len: .6 }); ctx.cue(.6, 'hit', { size: .8 });
