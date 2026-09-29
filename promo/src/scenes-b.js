@@ -50,9 +50,12 @@
       arcr.setAttribute('transform', `translate(0 22.4) scale(1 -1) translate(0 ${(1 - r) * 4})`);
       arcr.parentNode.style.opacity = 1 - pp;
       const pd = E.inOutCubic(pr(lb, pierAt[0], pierAt[1]));
-      pier.style.strokeDasharray = '1 1'; pier.style.strokeDashoffset = 1 - pd;
-      post.style.strokeDasharray = '1 1'; post.style.strokeDashoffset = 1 - E.outCubic(pr(lb, pierAt[0] + .6, pierAt[1] + .6));
-      box.style.strokeDasharray = '1 1'; box.style.strokeDashoffset = 1 - E.inOutCubic(pr(lb, pull[0] + .4 * (pull[1] - pull[0]), pull[1]));
+      const po = E.outCubic(pr(lb, pierAt[0] + .6, pierAt[1] + .6));
+      pier.style.strokeDasharray = pd >= .999 ? 'none' : '1 1'; pier.style.strokeDashoffset = 1 - pd;
+      post.style.strokeDasharray = po >= .999 ? 'none' : '1 1'; post.style.strokeDashoffset = 1 - po;
+      const bx = E.inOutCubic(pr(lb, pull[0] + .4 * (pull[1] - pull[0]), pull[1]));
+      box.style.strokeDasharray = bx >= .999 ? 'none' : '1 1'; box.style.strokeDashoffset = 1 - bx;
+      box.style.opacity = bx > .001 ? 1 : 0;
       svg.style.filter = `drop-shadow(0 0 ${lerp(18, 30, pp)}px rgba(110,231,200,${.35 + .3 * r}))`;
       title.textContent = scramble(o.caption || 'A PLACE TO DOCK', pr(lb, 1, 3), Math.floor(lb * 10));
       title.style.opacity = pr(lb, 1, 2) * (1 - pr(lb, pull[0] - 1, pull[0]));

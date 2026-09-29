@@ -28,4 +28,5 @@ for v in $VARIANTS; do
     -colorspace bt709 -color_primaries bt709 -color_trc bt709 \
     -c:a aac -b:a 320k -ar 48000 -movflags +faststart -shortest out/final/${NAME[$v]}.mp4
   echo "ENCODED out/final/${NAME[$v]}.mp4 $(du -h out/final/${NAME[$v]}.mp4 | cut -f1)"
+  ./deliver.sh $v ${NAME[$v]} 29
 done

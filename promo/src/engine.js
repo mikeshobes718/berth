@@ -67,7 +67,8 @@
   </svg>`;
   function drawLogo(svg, pBox, pPier, pPost, pArc) {
     const set = (sel, p) => svg.querySelectorAll(sel).forEach(n => {
-      n.style.strokeDasharray = '1 1'; n.style.strokeDashoffset = String(1 - clamp(p));
+      // a finished stroke drops the dash so the path closes without a seam
+      n.style.strokeDasharray = p >= .999 ? 'none' : '1 1'; n.style.strokeDashoffset = String(1 - clamp(p));
       n.style.opacity = p > 0.001 ? 1 : 0;
     });
     set('.lg-box', pBox); set('.lg-pier', pPier); set('.lg-post', pPost); set('.lg-arc', pArc);
