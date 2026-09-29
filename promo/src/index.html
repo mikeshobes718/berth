@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Berth promo</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="stage">
+  <canvas id="bg"></canvas>
+  <div id="world"></div>
+  <div id="flash"></div>
+  <div id="vignette"></div>
+  <div id="hud">
+    <div class="corner a"></div><div class="corner b"></div><div class="corner c"></div><div class="corner d"></div>
+    <div class="c tl"><span class="dot"></span><span class="tx">Berth</span></div>
+    <div class="c tr"><span class="tx">api.atberth.com/v1</span></div>
+    <div class="c bl"><span class="tx">Host your app or your site</span></div>
+    <div class="c br"><span class="tc">00:00:00</span></div>
+  </div>
+</div>
+<script src="engine.js"></script>
+<script src="kit.js"></script>
+<script src="scenes-a.js"></script>
+<script src="scenes-b.js"></script>
+<script>window.__boot().catch(e => { window.__error = String(e && e.stack || e); console.error(e); });</script>
+</body>
+</html>
